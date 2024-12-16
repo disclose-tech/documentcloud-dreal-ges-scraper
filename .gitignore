@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom
+__pycache__/
+data*.csv
+scrapy.log
+event_data*.json
