@@ -53,6 +53,8 @@ class GESSpider(scrapy.Spider):
 
             if str(self.target_year) in titre_rubrique:
 
+                self.logger.info(f"Scraping {titre_rubrique}")
+
                 dept_links = rubrique.css("a.lien-sous-rubrique")
 
                 for dl in dept_links:
