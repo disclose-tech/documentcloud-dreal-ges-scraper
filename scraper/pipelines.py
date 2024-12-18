@@ -126,19 +126,22 @@ class TagDepartmentsPipeline:
         item["departments"] = [item["department_from_scraper"]]
         item["departments_sources"] = ["scraper"]
 
-        # authority_department = department_from_authority(item["authority"])
+        authority_department = department_from_authority(item["authority"])
 
-        # if authority_department and authority_department != department_from_scraper:
-        #     item["departments_sources"].append("authority")
-        #     item["departments"].append(authority_department)
+        if (
+            authority_department
+            and authority_department != item["department_from_scraper"]
+        ):
+            item["departments_sources"].append("authority")
+            item["departments"].append(authority_department)
 
-        # else:
+        else:
 
-        #     project_departments = departments_from_project_name(item["project"])
+            project_departments = departments_from_project_name(item["project"])
 
-        #     if project_departments and project_departments != item["departments"]:
-        #         item["departments_sources"].append("regex")
-        #         item["departments"].extend(project_departments)
+            if project_departments and project_departments != item["departments"]:
+                item["departments_sources"].append("regex")
+                item["departments"].extend(project_departments)
 
         if item["departments"]:
             item["departments"] = sorted(list(set(item["departments"])))
