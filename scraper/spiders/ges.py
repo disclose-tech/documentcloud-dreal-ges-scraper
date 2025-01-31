@@ -149,8 +149,6 @@ class GESSpider(scrapy.Spider):
                         year=self.target_year,
                         authority="Préfecture de région Grand Est",
                         category_local="Décisions cas par cas projets",
-                        source_scraper=f"DREAL GES Scraper {self.target_year}",
-                        # full_info=info,
                         source="www.grand-est.developpement-durable.gouv.fr",
                         access=self.access_level,
                         department_from_scraper=dept[-3:-1],
